@@ -34,12 +34,16 @@ export function Gallery() {
   const [loading, setLoading] = useState(true)
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null)
 
-  const supabase = createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-  )
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  const isSupabaseConfigured = Boolean(supabaseUrl && supabaseKey)
+  const supabase = isSupabaseConfigured ? createBrowserClient(supabaseUrl!, supabaseKey!) : null
 
   useEffect(() => {
+    if (!supabase) {
+      setLoading(false)
+      return
+    }
     async function fetchGalleryItems() {
       try {
         const { data, error } = await supabase
@@ -63,7 +67,7 @@ export function Gallery() {
     }
 
     fetchGalleryItems()
-  }, [])
+  }, [supabase])
 
   const filteredItems =
     activeCategory === "all" ? galleryItems : galleryItems.filter((item) => item.category === activeCategory)

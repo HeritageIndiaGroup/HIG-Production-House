@@ -105,7 +105,17 @@ export function WeddingPackages() {
                     className={`w-full ${pkg.popular ? "bg-primary hover:bg-primary/90" : "bg-secondary hover:bg-secondary/90"}`}
                     size="lg"
                   >
-                    <Link href="/booking">Book This Package</Link>
+                    <Link
+                      href={`/booking?serviceCategory=wedding&packageTier=${pkg.name
+                        .toLowerCase()
+                        .includes("luxury")
+                        ? "luxury"
+                        : pkg.name.toLowerCase().includes("premium")
+                          ? "premium"
+                          : "basic"}`}
+                    >
+                      Book This Package
+                    </Link>
                   </Button>
                 </CardContent>
               </Card>

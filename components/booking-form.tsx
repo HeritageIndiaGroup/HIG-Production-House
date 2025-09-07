@@ -32,7 +32,7 @@ import {
 } from "lucide-react"
 import { format } from "date-fns"
 import { createClient } from "@/lib/supabase/client"
-import { useRouter } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
 
 interface Service {
   id: string
@@ -110,6 +110,9 @@ export function BookingForm() {
   const [isContactSubmitting, setIsContactSubmitting] = useState(false)
 
   const supabase = createClient()
+  const searchParams = useSearchParams()
+  const preServiceCategory = (searchParams.get("serviceCategory") || "").toLowerCase()
+  const prePackageTier = (searchParams.get("packageTier") || "").toLowerCase()
 
   // Fetch services on component mount
   useEffect(() => {
@@ -237,6 +240,41 @@ export function BookingForm() {
       setIsContactSubmitting(false)
     }
   }
+
+  // Preselect service from URL (serviceCategory)
+  useEffect(() => {
+    if (services.length && preServiceCategory && !bookingData.service_id) {
+      const svc = services.find((s) => (s.category || "").toLowerCase() === preServiceCategory)
+      if (svc) setBookingData((prev) => ({ ...prev, service_id: svc.id, package_id: "" }))
+    }
+  }, [services, preServiceCategory])
+
+  const matchesTier = (name: string, tier: string) => {
+    const n = name.toLowerCase()
+    const t = tier.toLowerCase()
+    if (t === "basic") return n.includes("basic")
+    if (t === "premium") return n.includes("premium") && !n.includes("luxury")
+    if (t === "luxury") return n.includes("luxury")
+    if (t === "starter") return n.includes("starter")
+    if (t === "professional") return n.includes("professional")
+    return false
+  }
+
+  // Preselect package from URL (packageTier) after packages load
+  useEffect(() => {
+    if (packages.length && prePackageTier && bookingData.package_id === "") {
+      const pkg = packages.find((p) => matchesTier(p.name, prePackageTier))
+      if (pkg) setBookingData((prev) => ({ ...prev, package_id: pkg.id }))
+    }
+  }, [packages, prePackageTier, bookingData.package_id])
+
+  // Auto-advance steps when preselected
+  useEffect(() => {
+    if (bookingData.service_id && currentStep < 2) setCurrentStep(2)
+  }, [bookingData.service_id])
+  useEffect(() => {
+    if (bookingData.service_id && bookingData.package_id && currentStep < 3) setCurrentStep(3)
+  }, [bookingData.service_id, bookingData.package_id])
 
   const selectedService = services.find((s) => s.id === bookingData.service_id)
   const selectedPackage = packages.find((p) => p.id === bookingData.package_id)

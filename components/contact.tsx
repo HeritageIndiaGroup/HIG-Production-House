@@ -91,7 +91,7 @@ export function Contact() {
                   <Phone className="w-5 h-5 text-primary flex-shrink-0" />
                   <div>
                     <p className="font-medium text-foreground">Phone</p>
-                    <p className="text-sm text-muted-foreground">+91 XXXXX XXXXX</p>
+                    <p className="text-sm text-muted-foreground">+91 8418878887</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3">

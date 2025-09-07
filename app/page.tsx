@@ -13,9 +13,9 @@ export default function HomePage() {
     <div className="min-h-screen bg-background">
       <Navigation />
       <Hero />
-      <Services />
       <WeddingPackages />
       <MusicVideoPackages />
+      <Services />
       <Gallery />
       <Contact />
       <Footer />

@@ -103,7 +103,17 @@ export function MusicVideoPackages() {
                     className={`w-full ${pkg.popular ? "bg-primary hover:bg-primary/90" : "bg-secondary hover:bg-secondary/90"}`}
                     size="lg"
                   >
-                    <Link href="/booking">Book This Package</Link>
+                    <Link
+                      href={`/booking?serviceCategory=music_video&packageTier=${pkg.name
+                        .toLowerCase()
+                        .includes("starter")
+                        ? "starter"
+                        : pkg.name.toLowerCase().includes("professional")
+                          ? "professional"
+                          : "premium"}`}
+                    >
+                      Book This Package
+                    </Link>
                   </Button>
                 </CardContent>
               </Card>

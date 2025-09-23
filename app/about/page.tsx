@@ -265,7 +265,7 @@ export default function AboutPage() {
             </div>
             <div className="relative">
               <img
-                src="/logo.jpg"
+                src="/logo.png"
                 alt="HIG Film Production team at work"
                 className="rounded-lg shadow-2xl w-full"
               />

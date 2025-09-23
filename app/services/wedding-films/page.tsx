@@ -1,194 +1,1214 @@
+// "use client"
+
+// import React from "react"
+// import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+// import { Button } from "@/components/ui/button"
+// import { Badge } from "@/components/ui/badge"
+// import { Check, Star, Crown, Sparkles } from "lucide-react"
+// import { Parallax } from 'react-parallax';
+// import { Fade } from "react-awesome-reveal";
+
+// // NEW: Wedding-focused parallax data using your images
+// const parallaxData = [
+//   {
+//     title: "The Pre-Wedding Story",
+//     image: "/Wedding Shoots/IMG-20250906-WA0013.jpg",
+//     content: "Every great love story deserves a beautiful beginning. Our pre-wedding shoots capture the joy and anticipation before your big day, creating timeless portraits and cinematic moments."
+//   },
+//   {
+//     title: "Capturing Every Vow",
+//     image: "/Wedding Shoots/IMG-20250906-WA0019.jpg",
+//     content: "From the grand entrance to the final farewell, we are there to document the heartfelt emotions and unforgettable moments of your wedding ceremony with artistry and precision."
+//   },
+//   {
+//     title: "A Cinematic Masterpiece",
+//     image: "/Wedding Shoots/IMG-20250906-WA0024.jpg",
+//     content: "We transform the day's events into a breathtaking wedding film. A cinematic treasure you and your family will cherish for generations to come."
+//   },
+// ];
+
+// // Wedding Packages Data with ALL your specific images distributed
+// const whatsappNumber = "+917618878887"
+// const weddingPackages = [
+//  {
+//     name: "Bronze Package",
+//     originalPrice: "₹74,999",
+//     offeredPrice: "₹64,999",
+//     icon: Star,
+//     description: "Ideal for intimate single-day ceremonies.",
+//     images: [
+//         "/Wedding Shoots/IMG-20250906-WA0014.jpg",
+//         "/Wedding Shoots/IMG-20250906-WA0016.jpg",
+//     ],
+//     features: [
+//       "Photography & Videography",
+//       "1 Photographer + 1 Videographer",
+//       "Premium Album (200 Photos)",
+//       "5-Min Highlight Video",
+//       "Full Length Wedding Video",
+//       "Two Reel Videos",
+//     ],
+//     popular: false,
+//   },
+//   {
+//     name: "Silver Package",
+//     originalPrice: "₹94,999",
+//     offeredPrice: "₹84,999",
+//     icon: Crown,
+//     description: "Includes candid moments and aerial views.",
+//     images: [
+//         "/Wedding Shoots/IMG-20250906-WA0018.jpg",
+//         "/Wedding Shoots/IMG-20250906-WA0021.jpg",
+//     ],
+//     features: [
+//       "Candid Photography & Cinematography",
+//       "1 Photographer + 1 Videographer + 1 Drone Driver",
+//       "Premium Album (300 Photos)",
+//       "Wedding Teaser Video",
+//       "Edited High-Resolution Images",
+//       "Three Reel Videos",
+//     ],
+//     popular: true,
+//   },
+//   {
+//     name: "Gold Package",
+//     originalPrice: "₹1,09,999",
+//     offeredPrice: "₹99,999",
+//     icon: Sparkles,
+//     description: "A complete 4K cinematic experience.",
+//     images: [
+//         "/Wedding Shoots/IMG-20250906-WA0022.jpg",
+//         "/Wedding Shoots/Picsart_25-09-09_15-19-02-184.jpg",
+//     ],
+//     features: [
+//       "Full 4K Video Coverage",
+//       "2 Photographers + 1 Videographer + 1 Drone",
+//       "Cinematic Wedding Film in 4K",
+//       "Wedding Teaser Video in 4K",
+//       "Two Full Size Photo Frames",
+//       "Fast Delivery for all media",
+//     ],
+//     popular: false,
+//   },
+//   {
+//     name: "Diamond Package",
+//     originalPrice: "₹1,49,999",
+//     offeredPrice: "₹1,39,999",
+//     icon: Sparkles,
+//     description: "The ultimate documentary-style coverage.",
+//     images: [
+//         "/Wedding Shoots/IMG-20250906-WA0023.jpg",
+//     ],
+//     features: [
+//       "Extended Documentary Film",
+//       "2 Photographers + 2 Videographers + 1 Drone",
+//       "Drone Coverage for entire events",
+//       "Reels from Each Function",
+//       "Three Full Size Photo Frames",
+//       "Premium Album (350 Photos)",
+//     ],
+//     popular: true,
+//   },
+// ]
+
+// // Reusable Parallax Component
+// interface ParallaxSectionProps {
+//   image: string;
+//   title: string;
+//   content: string;
+// }
+
+// const ParallaxSection: React.FC<ParallaxSectionProps> = ({ image, title, content }) => (
+//   <Parallax 
+//     bgImage={image} 
+//     strength={500} 
+//     className="relative h-[70vh] md:h-[80vh] text-white flex items-center justify-center text-center"
+//   >
+//     <div className="bg-black/50 backdrop-blur-sm p-6 md:p-12 rounded-lg max-w-4xl mx-4 border border-white/20">
+//       <Fade direction="up" triggerOnce>
+//         <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-wider mb-4">{title}</h2>
+//         <p className="text-md md:text-lg leading-relaxed">{content}</p>
+//       </Fade>
+//     </div>
+//   </Parallax>
+// );
+
+// // This is the main component that renders the entire page content
+// export default function WeddingFilmsClient() {
+//   const getWhatsAppLink = (packageName: string, offeredPrice: string) => {
+//     const text = encodeURIComponent(
+//       `Hello HIG Production House, I would like to book the ${packageName} wedding package for ${offeredPrice}.`
+//     )
+//     return `https://wa.me/${whatsappNumber}?text=${text}`
+//   }
+
+//   return (
+//     <main className="bg-white">
+//       <Parallax
+//         bgImage="/Wedding Shoots/pexels-sampark-films-samparkfilms-com-1300296201-32081704.jpg"
+//         strength={600}
+//         className="h-screen text-white flex items-center justify-center text-center"
+//       >
+//         <div className="bg-black/50 backdrop-blur-sm p-8 md:p-16 rounded-lg max-w-5xl mx-4 border border-white/20">
+//           <Fade direction="down" triggerOnce>
+//             <h1 className="text-5xl md:text-7xl font-bold mb-4">Your Forever Story, Told Cinematically</h1>
+//             <p className="text-xl md:text-2xl font-light">Crafting Timeless Wedding Films in Varanasi and Beyond</p>
+//           </Fade>
+//         </div>
+//       </Parallax>
+
+//       {parallaxData.map((section, index) => (
+//         <ParallaxSection key={index} {...section} />
+//       ))}
+
+//       <section id="wedding-packages" className="py-20 bg-slate-50">
+//         <div className="max-w-7xl mx-auto px-6">
+//           <div className="text-center mb-16">
+//             <Fade direction="down" triggerOnce>
+//               <h2 className="text-base font-semibold text-cyan-600 tracking-wider uppercase">Our Wedding Packages</h2>
+//               <p className="mt-2 text-4xl md:text-5xl font-bold text-gray-900 tracking-tight">
+//                 Choose Your Perfect Story
+//               </p>
+//               <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+//                 We've crafted four exclusive packages to perfectly capture your special day. Each one is designed with care, quality, and a touch of cinematic magic.
+//               </p>
+//             </Fade>
+//           </div>
+
+//           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+//             {weddingPackages.map((pkg) => (
+//               <Fade direction="up" triggerOnce key={pkg.name}>
+//                 <PackageCard pkg={pkg} getWhatsAppLink={getWhatsAppLink} />
+//               </Fade>
+//             ))}
+//           </div>
+
+//           <div className="text-center mt-16">
+//              <p className="text-gray-600 mb-4">
+//               Need a custom package? We'll create a personalized solution for your unique celebration.
+//             </p>
+//             <Button
+//               asChild
+//               variant="outline"
+//               size="lg"
+//               className="border-cyan-600 text-cyan-600 hover:bg-cyan-600 hover:text-white bg-transparent transition-colors"
+//             >
+//               <a href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hello, I would like to request a custom wedding package.")}`} target="_blank" rel="noopener noreferrer">
+//                 Request a Custom Quote
+//               </a>
+//             </Button>
+//           </div>
+//         </div>
+//       </section>
+      
+//       <footer className="bg-gray-900 text-gray-300 text-center p-8">
+//         <p>&copy; {new Date().getFullYear()} HIG Production House. All Rights Reserved.</p>
+//         <p className="text-sm">Based in Varanasi, Uttar Pradesh</p>
+//       </footer>
+//     </main>
+//   )
+// }
+
+// // Redesigned and Corrected PackageCard Component
+// const PackageCard = ({ pkg, getWhatsAppLink }: { pkg: { images: string[] } & typeof weddingPackages[0], getWhatsAppLink: Function }) => {
+//   const Icon = pkg.icon;
+//   const popularStyles = pkg.popular 
+//     ? "ring-2 ring-cyan-500 ring-offset-2 shadow-2xl shadow-cyan-500/20" 
+//     : "ring-1 ring-gray-200";
+
+//   return (
+//     <div className={`relative flex flex-col rounded-2xl bg-white transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${popularStyles}`}>
+//         <div className="aspect-w-16 aspect-h-9">
+//             <img 
+//                 src={pkg.images[0]} 
+//                 alt={pkg.name} 
+//                 className="w-full h-full object-cover rounded-t-2xl"
+//             />
+//         </div>
+//         <div className="p-8 flex flex-col flex-grow">
+//             {pkg.popular && (
+//                 <p className="absolute top-0 left-8 -translate-y-1/2 rounded-full bg-cyan-500 px-4 py-1 text-sm font-semibold text-white">
+//                 Most Popular
+//                 </p>
+//             )}
+//             <div className="flex items-center">
+//                 <div className="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center mr-4">
+//                 <Icon className="w-7 h-7 text-cyan-600" />
+//                 </div>
+//                 <div>
+//                 <h3 className="text-xl font-semibold text-gray-900">{pkg.name}</h3>
+//                 <p className="text-sm text-gray-500">{pkg.description}</p>
+//                 </div>
+//             </div>
+//             <div className="my-8 flex items-baseline gap-x-2">
+//                 <span className="text-5xl font-bold tracking-tight text-gray-900">{pkg.offeredPrice}</span>
+//                 <span className="text-md font-medium text-gray-400 line-through">{pkg.originalPrice}</span>
+//             </div>
+//             <ul className="flex-grow space-y-3 text-sm leading-6 text-gray-600">
+//                 <Fade cascade damping={0.1} triggerOnce>
+//                 {pkg.features.map((feature) => (
+//                     <li key={feature} className="flex gap-x-3">
+//                     <Check className="h-6 w-5 flex-none text-cyan-500" aria-hidden="true" />
+//                     {feature}
+//                     </li>
+//                 ))}
+//                 </Fade>
+//             </ul>
+//             <a href={getWhatsAppLink(pkg.name, pkg.offeredPrice)} target="_blank" rel="noopener noreferrer" className="mt-8 block rounded-md bg-cyan-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-cyan-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600 transition-colors">
+//                 Book This Package
+//             </a>
+//         </div>
+//     </div>
+//   );
+// };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// "use client"
+
+// import React from "react"
+// import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+// import { Button } from "@/components/ui/button"
+// import { Badge } from "@/components/ui/badge"
+// import { Check, Star, Crown, Sparkles } from "lucide-react"
+// import { Parallax } from 'react-parallax';
+// import { Fade } from "react-awesome-reveal";
+
+// // Wedding-focused parallax data using your images
+// const parallaxData = [
+//   {
+//     title: "The Pre-Wedding Story",
+//     image: "/Wedding Shoots/IMG-20250906-WA0013.jpg",
+//     content: "Every great love story deserves a beautiful beginning. Our pre-wedding shoots capture the joy and anticipation before your big day, creating timeless portraits and cinematic moments."
+//   },
+//   {
+//     title: "Capturing Every Vow",
+//     image: "/Wedding Shoots/IMG-20250906-WA0019.jpg",
+//     content: "From the grand entrance to the final farewell, we are there to document the heartfelt emotions and unforgettable moments of your wedding ceremony with artistry and precision."
+//   },
+//   {
+//     title: "A Cinematic Masterpiece",
+//     image: "/Wedding Shoots/IMG-20250906-WA0024.jpg",
+//     content: "We transform the day's events into a breathtaking wedding film. A cinematic treasure you and your family will cherish for generations to come."
+//   },
+// ];
+
+// // Wedding Packages Data with ALL your specific images distributed
+// const whatsappNumber = "+917618878887"
+// const weddingPackages = [
+//  {
+//     name: "Bronze Package",
+//     originalPrice: "₹74,999",
+//     offeredPrice: "₹64,999",
+//     icon: Star,
+//     description: "Ideal for intimate single-day ceremonies.",
+//     images: [
+//         "/Wedding Shoots/IMG-20250906-WA0014.jpg",
+//         "/Wedding Shoots/IMG-20250906-WA0016.jpg",
+//     ],
+//     features: [
+//       "Photography & Videography",
+//       "1 Photographer + 1 Videographer",
+//       "Premium Album (200 Photos)",
+//       "5-Min Highlight Video",
+//       "Full Length Wedding Video",
+//       "Two Reel Videos",
+//     ],
+//     popular: false, // This property is no longer used for styling
+//   },
+//   {
+//     name: "Silver Package",
+//     originalPrice: "₹94,999",
+//     offeredPrice: "₹84,999",
+//     icon: Crown,
+//     description: "Includes candid moments and aerial views.",
+//     images: [
+//         "/Wedding Shoots/IMG-20250906-WA0018.jpg",
+//         "/Wedding Shoots/IMG-20250906-WA0021.jpg",
+//     ],
+//     features: [
+//       "Candid Photography & Cinematography",
+//       "1 Photographer + 1 Videographer + 1 Drone Driver",
+//       "Premium Album (300 Photos)",
+//       "Wedding Teaser Video",
+//       "Edited High-Resolution Images",
+//       "Three Reel Videos",
+//     ],
+//     popular: true, // This property is no longer used for styling
+//   },
+//   {
+//     name: "Gold Package",
+//     originalPrice: "₹1,09,999",
+//     offeredPrice: "₹99,999",
+//     icon: Sparkles,
+//     description: "A complete 4K cinematic experience.",
+//     images: [
+//         "/Wedding Shoots/IMG-20250906-WA0022.jpg",
+//         "/Wedding Shoots/Picsart_25-09-09_15-19-02-184.jpg",
+//     ],
+//     features: [
+//       "Full 4K Video Coverage",
+//       "2 Photographers + 1 Videographer + 1 Drone",
+//       "Cinematic Wedding Film in 4K",
+//       "Wedding Teaser Video in 4K",
+//       "Two Full Size Photo Frames",
+//       "Fast Delivery for all media",
+//     ],
+//     popular: false, // This property is no longer used for styling
+//   },
+//   {
+//     name: "Diamond Package",
+//     originalPrice: "₹1,49,999",
+//     offeredPrice: "₹1,39,999",
+//     icon: Sparkles,
+//     description: "The ultimate documentary-style coverage.",
+//     images: [
+//         "/Wedding Shoots/IMG-20250906-WA0023.jpg",
+//     ],
+//     features: [
+//       "Extended Documentary Film",
+//       "2 Photographers + 2 Videographers + 1 Drone",
+//       "Drone Coverage for entire events",
+//       "Reels from Each Function",
+//       "Three Full Size Photo Frames",
+//       "Premium Album (350 Photos)",
+//     ],
+//     popular: true, // This property is no longer used for styling
+//   },
+// ]
+
+// // Reusable Parallax Component
+// interface ParallaxSectionProps {
+//   image: string;
+//   title: string;
+//   content: string;
+// }
+
+// const ParallaxSection: React.FC<ParallaxSectionProps> = ({ image, title, content }) => (
+//   <Parallax 
+//     bgImage={image} 
+//     strength={400}
+//     className="relative h-[85vh] text-white flex items-center justify-center text-center"
+//     bgImageStyle={{ backgroundPosition: 'center' }}
+//   >
+//     <div className="bg-black/50 backdrop-blur-sm p-6 md:p-12 rounded-lg max-w-4xl mx-4 border border-white/20">
+//       <Fade direction="up" triggerOnce>
+//         <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-wider mb-4">{title}</h2>
+//         <p className="text-md md:text-lg leading-relaxed">{content}</p>
+//       </Fade>
+//     </div>
+//   </Parallax>
+// );
+
+
+// // This is the main component that renders the entire page content
+// export default function WeddingFilmsClient() {
+//   const getWhatsAppLink = (packageName: string, offeredPrice: string) => {
+//     const text = encodeURIComponent(
+//       `Hello HIG Production House, I would like to book the ${packageName} wedding package for ${offeredPrice}.`
+//     )
+//     return `https://wa.me/${whatsappNumber}?text=${text}`
+//   }
+
+//   return (
+//     <main className="bg-white">
+//       <Parallax
+//         bgImage="/Wedding Shoots/pexels-sampark-films-samparkfilms-com-1300296201-32081704.jpg"
+//         strength={400}
+//         className="h-screen text-white flex items-center justify-center text-center"
+//         bgImageStyle={{ backgroundPosition: 'center' }}
+//       >
+//         <div className="bg-black/50 backdrop-blur-sm p-8 md:p-16 rounded-lg max-w-5xl mx-4 border border-white/20">
+//           <Fade direction="down" triggerOnce>
+//             <h1 className="text-5xl md:text-7xl font-bold mb-4">Your Forever Story, Told Cinematically</h1>
+//             <p className="text-xl md:text-2xl font-light">Crafting Timeless Wedding Films in Varanasi and Beyond</p>
+//           </Fade>
+//         </div>
+//       </Parallax>
+
+//       {parallaxData.map((section, index) => (
+//         <ParallaxSection key={index} {...section} />
+//       ))}
+
+//       <section id="wedding-packages" className="py-20 bg-slate-50">
+//         <div className="max-w-7xl mx-auto px-6">
+//           <div className="text-center mb-16">
+//             <Fade direction="down" triggerOnce>
+//               <h2 className="text-base font-semibold text-cyan-600 tracking-wider uppercase">Our Wedding Packages</h2>
+//               <p className="mt-2 text-4xl md:text-5xl font-bold text-gray-900 tracking-tight">
+//                 Choose Your Perfect Story
+//               </p>
+//               <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+//                 We've crafted four exclusive packages to perfectly capture your special day. Each one is designed with care, quality, and a touch of cinematic magic.
+//               </p>
+//             </Fade>
+//           </div>
+
+//           {/* 🔧 UPDATED: Grid now uses lg:grid-cols-2 for a consistent 2x2 layout on larger screens */}
+//           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+//             {weddingPackages.map((pkg) => (
+//               <Fade direction="up" triggerOnce key={pkg.name}>
+//                 <PackageCard pkg={pkg} getWhatsAppLink={getWhatsAppLink} />
+//               </Fade>
+//             ))}
+//           </div>
+
+//           <div className="text-center mt-16">
+//              <p className="text-gray-600 mb-4">
+//               Need a custom package? We'll create a personalized solution for your unique celebration.
+//             </p>
+//             <Button
+//               asChild
+//               variant="outline"
+//               size="lg"
+//               className="border-cyan-600 text-cyan-600 hover:bg-cyan-600 hover:text-white bg-transparent transition-colors"
+//             >
+//               <a href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hello, I would like to request a custom wedding package.")}`} target="_blank" rel="noopener noreferrer">
+//                 Request a Custom Quote
+//               </a>
+//             </Button>
+//           </div>
+//         </div>
+//       </section>
+      
+//       <footer className="bg-gray-900 text-gray-300 text-center p-8">
+//         <p>&copy; 2025 HIG Production House. All Rights Reserved.</p>
+//         <p className="text-sm">Based in Varanasi, Uttar Pradesh</p>
+//       </footer>
+//     </main>
+//   )
+// }
+
+// // PackageCard Component
+// const PackageCard = ({ pkg, getWhatsAppLink }: { pkg: { images: string[] } & typeof weddingPackages[0], getWhatsAppLink: Function }) => {
+//   const Icon = pkg.icon;
+//   // 🔧 UPDATED: The premium glowing style is now applied to ALL cards for a uniform look
+//   const popularStyles = "ring-2 ring-cyan-500 ring-offset-2 shadow-2xl shadow-cyan-500/20";
+
+//   return (
+//     <div className={`relative flex flex-col rounded-2xl bg-white transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${popularStyles}`}>
+//         <div className="aspect-w-16 aspect-h-9">
+//             <img 
+//                 src={pkg.images[0]} 
+//                 alt={pkg.name} 
+//                 className="w-full h-full object-cover rounded-t-2xl"
+//             />
+//         </div>
+//         <div className="p-8 flex flex-col flex-grow">
+//             {/* The "Most Popular" badge is removed as all cards now share the same premium design */}
+//             <div className="flex items-center">
+//                 <div className="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center mr-4">
+//                 <Icon className="w-7 h-7 text-cyan-600" />
+//                 </div>
+//                 <div>
+//                 <h3 className="text-xl font-semibold text-gray-900">{pkg.name}</h3>
+//                 <p className="text-sm text-gray-500">{pkg.description}</p>
+//                 </div>
+//             </div>
+//             <div className="my-8 flex items-baseline gap-x-2">
+//                 <span className="text-5xl font-bold tracking-tight text-gray-900">{pkg.offeredPrice}</span>
+//                 <span className="text-md font-medium text-gray-400 line-through">{pkg.originalPrice}</span>
+//             </div>
+//             <ul className="flex-grow space-y-3 text-sm leading-6 text-gray-600">
+//                 <Fade cascade damping={0.1} triggerOnce>
+//                 {pkg.features.map((feature) => (
+//                     <li key={feature} className="flex gap-x-3">
+//                     <Check className="h-6 w-5 flex-none text-cyan-500" aria-hidden="true" />
+//                     {feature}
+//                     </li>
+//                 ))}
+//                 </Fade>
+//             </ul>
+//             <a href={getWhatsAppLink(pkg.name, pkg.offeredPrice)} target="_blank" rel="noopener noreferrer" className="mt-8 block rounded-md bg-cyan-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-cyan-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600 transition-colors">
+//                 Book This Package
+//             </a>
+//         </div>
+//     </div>
+//   );
+// };
+
+
+
+
+
+
+
+
+// "use client"
+
+// import React from "react"
+// import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+// import { Button } from "@/components/ui/button"
+// import { Badge } from "@/components/ui/badge"
+// import { Check, Star, Crown, Sparkles } from "lucide-react"
+// import { Parallax } from 'react-parallax';
+// import { Fade } from "react-awesome-reveal";
+
+// // Data for Parallax Sections
+// const parallaxData = [
+//   {
+//     title: "The Pre-Wedding Story",
+//     image: "/Wedding Shoots/IMG-20250906-WA0013.jpg",
+//     content: "Every great love story deserves a beautiful beginning. Our pre-wedding shoots capture the joy and anticipation before your big day, creating timeless portraits and cinematic moments."
+//   },
+//   {
+//     title: "Capturing Every Vow",
+//     image: "/Wedding Shoots/IMG-20250906-WA0019.jpg",
+//     content: "From the grand entrance to the final farewell, we are there to document the heartfelt emotions and unforgettable moments of your wedding ceremony with artistry and precision."
+//   },
+//   {
+//     title: "A Cinematic Masterpiece",
+//     image: "/Wedding Shoots/IMG-20250906-WA0024.jpg",
+//     content: "We transform the day's events into a breathtaking wedding film. A cinematic treasure you and your family will cherish for generations to come."
+//   },
+// ];
+
+// // Wedding Packages Data
+// const whatsappNumber = "+917618878887"
+// const weddingPackages = [
+//  {
+//     name: "Bronze Package",
+//     originalPrice: "₹74,999",
+//     offeredPrice: "₹64,999",
+//     icon: Star,
+//     description: "Ideal for intimate single-day ceremonies.",
+//     images: ["/Wedding Shoots/IMG-20250906-WA0014.jpg", "/Wedding Shoots/IMG-20250906-WA0016.jpg"],
+//     features: ["Photography & Videography", "1 Photographer + 1 Videographer", "Premium Album (200 Photos)", "5-Min Highlight Video", "Full Length Wedding Video", "Two Reel Videos"],
+//     popular: false,
+//   },
+//   {
+//     name: "Silver Package",
+//     originalPrice: "₹94,999",
+//     offeredPrice: "₹84,999",
+//     icon: Crown,
+//     description: "Includes candid moments and aerial views.",
+//     images: ["/Wedding Shoots/IMG-20250906-WA0018.jpg", "/Wedding Shoots/IMG-20250906-WA0021.jpg"],
+//     features: ["Candid Photography & Cinematography", "1 Photographer + 1 Videographer + 1 Drone Driver", "Premium Album (300 Photos)", "Wedding Teaser Video", "Edited High-Resolution Images", "Three Reel Videos"],
+//     popular: true,
+//   },
+//   {
+//     name: "Gold Package",
+//     originalPrice: "₹1,09,999",
+//     offeredPrice: "₹99,999",
+//     icon: Sparkles,
+//     description: "A complete 4K cinematic experience.",
+//     images: ["/Wedding Shoots/IMG-20250906-WA0022.jpg", "/Wedding Shoots/Picsart_25-09-09_15-19-02-184.jpg"],
+//     features: ["Full 4K Video Coverage", "2 Photographers + 1 Videographer + 1 Drone", "Cinematic Wedding Film in 4K", "Wedding Teaser Video in 4K", "Two Full Size Photo Frames", "Fast Delivery for all media"],
+//     popular: false,
+//   },
+//   {
+//     name: "Diamond Package",
+//     originalPrice: "₹1,49,999",
+//     offeredPrice: "₹1,39,999",
+//     icon: Sparkles,
+//     description: "The ultimate documentary-style coverage.",
+//     images: ["/Wedding Shoots/IMG-20250906-WA0023.jpg"],
+//     features: ["Extended Documentary Film", "2 Photographers + 2 Videographers + 1 Drone", "Drone Coverage for entire events", "Reels from Each Function", "Three Full Size Photo Frames", "Premium Album (350 Photos)"],
+//     popular: true,
+//   },
+// ]
+
+// // Parallax Component
+// interface ParallaxSectionProps {
+//   image: string;
+//   title: string;
+//   content: string;
+// }
+
+// const ParallaxSection: React.FC<ParallaxSectionProps> = ({ image, title, content }) => (
+//   <Parallax 
+//     bgImage={image} 
+//     strength={200}
+//     // UPDATED: Height is now 100vh (h-screen)
+//     className="relative h-screen bg-black text-white flex items-center justify-center text-center"
+//     bgImageStyle={{ backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}
+//   >
+//     <div className="bg-black/50 backdrop-blur-sm p-6 md:p-12 rounded-lg max-w-4xl mx-4 border border-white/20">
+//       <Fade direction="up" triggerOnce>
+//         <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-wider mb-4">{title}</h2>
+//         <p className="text-md md:text-lg leading-relaxed">{content}</p>
+//       </Fade>
+//     </div>
+//   </Parallax>
+// );
+
+// // Main Client Component
+// export default function WeddingFilmsClient() {
+//   const getWhatsAppLink = (packageName: string, offeredPrice: string) => {
+//     const text = encodeURIComponent(
+//       `Hello HIG Production House, I would like to book the ${packageName} wedding package for ${offeredPrice}.`
+//     )
+//     return `https://wa.me/${whatsappNumber}?text=${text}`
+//   }
+
+//   return (
+//     <main className="bg-white">
+//       {/* Hero section is already h-screen, no changes needed */}
+//       <Parallax
+//         bgImage="/Wedding Shoots/pexels-sampark-films-samparkfilms-com-1300296201-32081704.jpg"
+//         strength={400}
+//         className="h-screen text-white flex items-center justify-center text-center"
+//         bgImageStyle={{ backgroundPosition: 'center' }}
+//       >
+//         <div className="bg-black/50 backdrop-blur-sm p-8 md:p-16 rounded-lg max-w-5xl mx-4 border border-white/20">
+//           <Fade direction="down" triggerOnce>
+//             <h1 className="text-5xl md:text-7xl font-bold mb-4">Your Forever Story, Told Cinematically</h1>
+//             <p className="text-xl md:text-2xl font-light">Crafting Timeless Wedding Films in Varanasi and Beyond</p>
+//           </Fade>
+//         </div>
+//       </Parallax>
+
+//       {/* Subsequent parallax sections will now be 100vh */}
+//       {parallaxData.map((section, index) => (
+//         <ParallaxSection key={index} {...section} />
+//       ))}
+
+//       <section id="wedding-packages" className="py-20 bg-slate-50">
+//         <div className="max-w-7xl mx-auto px-6">
+//           <div className="text-center mb-16">
+//             <Fade direction="down" triggerOnce>
+//               <h2 className="text-base font-semibold text-cyan-600 tracking-wider uppercase">Our Wedding Packages</h2>
+//               <p className="mt-2 text-4xl md:text-5xl font-bold text-gray-900 tracking-tight">
+//                 Choose Your Perfect Story
+//               </p>
+//               <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+//                 We've crafted four exclusive packages to perfectly capture your special day. Each one is designed with care, quality, and a touch of cinematic magic.
+//               </p>
+//             </Fade>
+//           </div>
+
+//           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+//             {weddingPackages.map((pkg) => (
+//               <Fade direction="up" triggerOnce key={pkg.name}>
+//                 <PackageCard pkg={pkg} getWhatsAppLink={getWhatsAppLink} />
+//               </Fade>
+//             ))}
+//           </div>
+
+//           <div className="text-center mt-16">
+//              <p className="text-gray-600 mb-4">
+//               Need a custom package? We'll create a personalized solution for your unique celebration.
+//             </p>
+//             <Button
+//               asChild
+//               variant="outline"
+//               size="lg"
+//               className="border-cyan-600 text-cyan-600 hover:bg-cyan-600 hover:text-white bg-transparent transition-colors"
+//             >
+//               <a href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hello, I would like to request a custom wedding package.")}`} target="_blank" rel="noopener noreferrer">
+//                 Request a Custom Quote
+//               </a>
+//             </Button>
+//           </div>
+//         </div>
+//       </section>
+      
+//       <footer className="bg-gray-900 text-gray-300 text-center p-8">
+//         <p>&copy; {new Date().getFullYear()} HIG Production House. All Rights Reserved.</p>
+//         <p className="text-sm">Based in Varanasi, Uttar Pradesh</p>
+//       </footer>
+//     </main>
+//   )
+// }
+
+// // PackageCard Component
+// const PackageCard = ({ pkg, getWhatsAppLink }: { pkg: { images: string[] } & typeof weddingPackages[0], getWhatsAppLink: Function }) => {
+//   const Icon = pkg.icon;
+//   const popularStyles = "ring-2 ring-cyan-500 ring-offset-2 shadow-2xl shadow-cyan-500/20";
+
+//   return (
+//     <div className={`relative flex flex-col rounded-2xl bg-white transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${popularStyles}`}>
+//         <div className="aspect-w-16 aspect-h-9">
+//             <img 
+//                 src={pkg.images[0]} 
+//                 alt={pkg.name} 
+//                 className="w-full h-full object-cover rounded-t-2xl"
+//             />
+//         </div>
+//         <div className="p-8 flex flex-col flex-grow">
+//             <div className="flex items-center">
+//                 <div className="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center mr-4">
+//                 <Icon className="w-7 h-7 text-cyan-600" />
+//                 </div>
+//                 <div>
+//                 <h3 className="text-xl font-semibold text-gray-900">{pkg.name}</h3>
+//                 <p className="text-sm text-gray-500">{pkg.description}</p>
+//                 </div>
+//             </div>
+//             <div className="my-8 flex items-baseline gap-x-2">
+//                 <span className="text-5xl font-bold tracking-tight text-gray-900">{pkg.offeredPrice}</span>
+//                 <span className="text-md font-medium text-gray-400 line-through">{pkg.originalPrice}</span>
+//             </div>
+//             <ul className="flex-grow space-y-3 text-sm leading-6 text-gray-600">
+//                 <Fade cascade damping={0.1} triggerOnce>
+//                 {pkg.features.map((feature) => (
+//                     <li key={feature} className="flex gap-x-3">
+//                     <Check className="h-6 w-5 flex-none text-cyan-500" aria-hidden="true" />
+//                     {feature}
+//                     </li>
+//                 ))}
+//                 </Fade>
+//             </ul>
+//             {/* 🔧 UPDATED: Corrected the typo in padding classes (py-2.5 and px-3.5) */}
+//             <a href={getWhatsAppLink(pkg.name, pkg.offeredPrice)} target="_blank" rel="noopener noreferrer" className="mt-8 block rounded-md bg-cyan-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-cyan-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600 transition-colors">
+//                 Book This Package
+//             </a>
+//         </div>
+//     </div>
+//   );
+// };
+
+
+
+
+
+
+
+// "use client"
+
+// import React, { useState } from "react"
+// import { Card } from "@/components/ui/card"
+// import { Button } from "@/components/ui/button"
+// import { Check, Star, Crown, Sparkles } from "lucide-react"
+// import { Parallax } from 'react-parallax';
+// import { Fade } from "react-awesome-reveal";
+// import { Dialog, DialogContent } from "@/components/ui/dialog";
+// import { BookingForm } from "@/components/BookingForm"; // UPDATED import path
+
+// // Data for Parallax Sections
+// const parallaxData = [
+//   {
+//     title: "The Pre-Wedding Story",
+//     image: "/Wedding Shoots/IMG-20250906-WA0013.jpg",
+//     content: "Every great love story deserves a beautiful beginning. Our pre-wedding shoots capture the joy and anticipation before your big day, creating timeless portraits and cinematic moments."
+//   },
+//   {
+//     title: "Capturing Every Vow",
+//     image: "/Wedding Shoots/IMG-20250906-WA0019.jpg",
+//     content: "From the grand entrance to the final farewell, we are there to document the heartfelt emotions and unforgettable moments of your wedding ceremony with artistry and precision."
+//   },
+//   {
+//     title: "A Cinematic Masterpiece",
+//     image: "/Wedding Shoots/IMG-20250906-WA0024.jpg",
+//     content: "We transform the day's events into a breathtaking wedding film. A cinematic treasure you and your family will cherish for generations to come."
+//   },
+// ];
+
+// const whatsappNumber = "+917618878887"
+// const weddingPackages = [
+//  {
+//     name: "Bronze Package",
+//     originalPrice: "₹74,999",
+//     offeredPrice: "₹64,999",
+//     icon: Star,
+//     description: "Ideal for intimate single-day ceremonies.",
+//     images: ["/Wedding Shoots/IMG-20250906-WA0014.jpg", "/Wedding Shoots/IMG-20250906-WA0016.jpg"],
+//     features: ["Photography & Videography", "1 Photographer + 1 Videographer", "Premium Album (200 Photos)", "5-Min Highlight Video", "Full Length Wedding Video", "Two Reel Videos"],
+//   },
+//   {
+//     name: "Silver Package",
+//     originalPrice: "₹94,999",
+//     offeredPrice: "₹84,999",
+//     icon: Crown,
+//     description: "Includes candid moments and aerial views.",
+//     images: ["/Wedding Shoots/IMG-20250906-WA0018.jpg", "/Wedding Shoots/IMG-20250906-WA0021.jpg"],
+//     features: ["Candid Photography & Cinematography", "1 Photographer + 1 Videographer + 1 Drone Driver", "Premium Album (300 Photos)", "Wedding Teaser Video", "Edited High-Resolution Images", "Three Reel Videos"],
+//   },
+//   {
+//     name: "Gold Package",
+//     originalPrice: "₹1,09,999",
+//     offeredPrice: "₹99,999",
+//     icon: Sparkles,
+//     description: "A complete 4K cinematic experience.",
+//     images: ["/Wedding Shoots/IMG-20250906-WA0022.jpg", "/Wedding Shoots/Picsart_25-09-09_15-19-02-184.jpg"],
+//     features: ["Full 4K Video Coverage", "2 Photographers + 1 Videographer + 1 Drone", "Cinematic Wedding Film in 4K", "Wedding Teaser Video in 4K", "Two Full Size Photo Frames", "Fast Delivery for all media"],
+//   },
+//   {
+//     name: "Diamond Package",
+//     originalPrice: "₹1,49,999",
+//     offeredPrice: "₹1,39,999",
+//     icon: Sparkles,
+//     description: "The ultimate documentary-style coverage.",
+//     images: ["/Wedding Shoots/IMG-20250906-WA0023.jpg"],
+//     features: ["Extended Documentary Film", "2 Photographers + 2 Videographers + 1 Drone", "Drone Coverage for entire events", "Reels from Each Function", "Three Full Size Photo Frames", "Premium Album (350 Photos)"],
+//   },
+// ]
+
+// type WeddingPackage = typeof weddingPackages[0];
+
+// const ParallaxSection: React.FC<{image: string; title: string; content: string;}> = ({ image, title, content }) => (
+//   <Parallax 
+//     bgImage={image} 
+//     strength={200}
+//     className="relative h-screen bg-black text-white flex items-center justify-center text-center"
+//     bgImageStyle={{ backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}
+//   >
+//     <div className="bg-black/50 backdrop-blur-sm p-6 md:p-12 rounded-lg max-w-4xl mx-4 border border-white/20">
+//       <Fade direction="up" triggerOnce>
+//         <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-wider mb-4">{title}</h2>
+//         <p className="text-md md:text-lg leading-relaxed">{content}</p>
+//       </Fade>
+//     </div>
+//   </Parallax>
+// );
+
+// export default function WeddingFilmsClient() {
+//   const [selectedPackage, setSelectedPackage] = useState<WeddingPackage | null>(null);
+
+//   const handleFormSuccess = () => {
+//     setSelectedPackage(null); 
+//   };
+
+//   return (
+//     <Dialog open={!!selectedPackage} onOpenChange={(isOpen) => !isOpen && setSelectedPackage(null)}>
+//       <main className="bg-white">
+//         <Parallax
+//           bgImage="/Wedding Shoots/pexels-sampark-films-samparkfilms-com-1300296201-32081704.jpg"
+//           strength={400}
+//           className="h-screen text-white flex items-center justify-center text-center"
+//           bgImageStyle={{ backgroundPosition: 'center' }}
+//         >
+//           <div className="bg-black/50 backdrop-blur-sm p-8 md:p-16 rounded-lg max-w-5xl mx-4 border border-white/20">
+//             <Fade direction="down" triggerOnce>
+//               <h1 className="text-5xl md:text-7xl font-bold mb-4">Your Forever Story, Told Cinematically</h1>
+//               <p className="text-xl md:text-2xl font-light">Crafting Timeless Wedding Films in Varanasi and Beyond</p>
+//             </Fade>
+//           </div>
+//         </Parallax>
+
+//         {parallaxData.map((section, index) => (
+//           <ParallaxSection key={index} {...section} />
+//         ))}
+
+//         <section id="wedding-packages" className="py-20 bg-slate-50">
+//           <div className="max-w-7xl mx-auto px-6">
+//             <div className="text-center mb-16">
+//               <Fade direction="down" triggerOnce>
+//                 <h2 className="text-base font-semibold text-cyan-600 tracking-wider uppercase">Our Wedding Packages</h2>
+//                 <p className="mt-2 text-4xl md:text-5xl font-bold text-gray-900 tracking-tight">
+//                   Choose Your Perfect Story
+//                 </p>
+//                 <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+//                   We've crafted four exclusive packages to perfectly capture your special day. Each one is designed with care, quality, and a touch of cinematic magic.
+//                 </p>
+//               </Fade>
+//             </div>
+
+//             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+//               {weddingPackages.map((pkg) => (
+//                 <Fade direction="up" triggerOnce key={pkg.name}>
+//                   <PackageCard pkg={pkg} onBookClick={() => setSelectedPackage(pkg)} />
+//                 </Fade>
+//               ))}
+//             </div>
+            
+//             <div className="text-center mt-16">
+//                <p className="text-gray-600 mb-4">
+//                 Need a custom package?
+//               </p>
+//               <Button asChild variant="outline" size="lg" className="border-cyan-600 text-cyan-600 hover:bg-cyan-600 hover:text-white bg-transparent transition-colors">
+//                 <a href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hello, I would like to request a custom wedding package.")}`} target="_blank" rel="noopener noreferrer">
+//                   Contact Us on WhatsApp
+//                 </a>
+//               </Button>
+//             </div>
+//           </div>
+//         </section>
+        
+//         <footer className="bg-gray-900 text-gray-300 text-center p-8">
+//           <p>&copy; {new Date().getFullYear()} HIG Production House. All Rights Reserved.</p>
+//           <p className="text-sm">Based in Varanasi, Uttar Pradesh</p>
+//         </footer>
+//       </main>
+
+//       <DialogContent className="sm:max-w-[425px]">
+//         {selectedPackage && <BookingForm packageName={selectedPackage.name} onSuccess={handleFormSuccess} />}
+//       </DialogContent>
+//     </Dialog>
+//   )
+// }
+
+// const PackageCard = ({ pkg, onBookClick }: { pkg: WeddingPackage, onBookClick: () => void }) => {
+//   const Icon = pkg.icon;
+//   const popularStyles = "ring-2 ring-cyan-500 ring-offset-2 shadow-2xl shadow-cyan-500/20";
+
+//   return (
+//     <div className={`relative flex flex-col rounded-2xl bg-white transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${popularStyles}`}>
+//         <div className="aspect-w-16 aspect-h-9">
+//             <img 
+//                 src={pkg.images[0]} 
+//                 alt={pkg.name} 
+//                 className="w-full h-full object-cover rounded-t-2xl"
+//             />
+//         </div>
+//         <div className="p-8 flex flex-col flex-grow">
+//             <div className="flex items-center">
+//                 <div className="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center mr-4">
+//                   <Icon className="w-7 h-7 text-cyan-600" />
+//                 </div>
+//                 <div>
+//                   <h3 className="text-xl font-semibold text-gray-900">{pkg.name}</h3>
+//                   <p className="text-sm text-gray-500">{pkg.description}</p>
+//                 </div>
+//             </div>
+//             <div className="my-8 flex items-baseline gap-x-2">
+//                 <span className="text-5xl font-bold tracking-tight text-gray-900">{pkg.offeredPrice}</span>
+//                 <span className="text-md font-medium text-gray-400 line-through">{pkg.originalPrice}</span>
+//             </div>
+//             <ul className="flex-grow space-y-3 text-sm leading-6 text-gray-600">
+//                 <Fade cascade damping={0.1} triggerOnce>
+//                 {pkg.features.map((feature: string) => (
+//                     <li key={feature} className="flex gap-x-3">
+//                     <Check className="h-6 w-5 flex-none text-cyan-500" aria-hidden="true" />
+//                     {feature}
+//                     </li>
+//                 ))}
+//                 </Fade>
+//             </ul>
+//             <Button onClick={onBookClick} className="mt-8 w-full bg-cyan-600 hover:bg-cyan-500">
+//                 Book This Package
+//             </Button>
+//         </div>
+//     </div>
+//   );
+// };
+
+
+
+
+
+
+
+
+
+
+
+
 "use client"
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import React, { useState } from "react"
+import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
 import { Check, Star, Crown, Sparkles } from "lucide-react"
-import Link from "next/link"
+import { Parallax } from 'react-parallax';
+import { Fade } from "react-awesome-reveal";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { BookingForm } from "@/components/BookingForm";
+
+// Data for Parallax Sections
+const parallaxData = [
+  {
+    title: "The Pre-Wedding Story",
+    image: "/Wedding Shoots/IMG-20250906-WA0013.jpg",
+    content: "Every great love story deserves a beautiful beginning. Our pre-wedding shoots capture the joy and anticipation before your big day, creating timeless portraits and cinematic moments."
+  },
+  {
+    title: "Capturing Every Vow",
+    image: "/Wedding Shoots/IMG-20250906-WA0019.jpg",
+    content: "From the grand entrance to the final farewell, we are there to document the heartfelt emotions and unforgettable moments of your wedding ceremony with artistry and precision."
+  },
+  {
+    title: "A Cinematic Masterpiece",
+    image: "/Wedding Shoots/IMG-20250906-WA0024.jpg",
+    content: "We transform the day's events into a breathtaking wedding film. A cinematic treasure you and your family will cherish for generations to come."
+  },
+];
 
 const whatsappNumber = "+917618878887"
-
 const weddingPackages = [
-  {
+ {
     name: "Bronze Package",
     originalPrice: "₹74,999",
     offeredPrice: "₹64,999",
     icon: Star,
-    description: "Full HD coverage for single-side weddings",
-    features: [
-      "Coverage Includes - Photography & Videography",
-      "1 Photographer + 1 Videographer",
-      "Premium Album - 200 Photos | Non-Tearable Sheets",
-      "Highlight Video - Up to 5 mins",
-      "Full Length Wedding Video",
-      "Two Reel Videos",
-    ],
-    popular: false,
-    color: "bg-[#f9fafb] border border-[#0891b2]",
+    description: "Ideal for intimate single-day ceremonies.",
+    images: ["/Wedding Shoots/IMG-20250906-WA0014.jpg", "/Wedding Shoots/IMG-20250906-WA0016.jpg"],
+    features: ["Photography & Videography", "1 Photographer + 1 Videographer", "Premium Album (200 Photos)", "5-Min Highlight Video", "Full Length Wedding Video", "Two Reel Videos"],
   },
   {
     name: "Silver Package",
     originalPrice: "₹94,999",
     offeredPrice: "₹84,999",
     icon: Crown,
-    description: "Full HD with extended coverage including candid & aerial",
-    features: [
-      "1 Photographer + 1 Videographer + 1 Drone Driver",
-      "Premium Album - 300 Photos | Non-Tearable Sheets",
-      "Full Length Wedding Videos",
-      "Edited High-Resolution Images",
-      "Wedding Teaser Video",
-      "Highlight Video Up to 5 mins",
-      "Three Reel Videos",
-    ],
-    popular: true,
-    color: "bg-[#f9fafb] border border-[#0891b2]",
+    description: "Includes candid moments and aerial views.",
+    images: ["/Wedding Shoots/IMG-20250906-WA0018.jpg", "/Wedding Shoots/IMG-20250906-WA0021.jpg"],
+    features: ["Candid Photography & Cinematography", "1 Photographer + 1 Videographer + 1 Drone Driver", "Premium Album (300 Photos)", "Wedding Teaser Video", "Edited High-Resolution Images", "Three Reel Videos"],
   },
   {
     name: "Gold Package",
     originalPrice: "₹1,09,999",
     offeredPrice: "₹99,999",
     icon: Sparkles,
-    description: "4K cinematic coverage for single-side weddings",
-    features: [
-      "2 Photographer + 1 Videographer + 1 Drone Driver",
-      "Premium Album - 300 Photos | Non-Tearable Sheets",
-      "Full Length Wedding Videos",
-      "Drone Coverage for special events",
-      "Edited High-Resolution Images",
-      "Wedding Teaser Video in 4K",
-      "Cinematic Wedding Film in 4K",
-      "Reels from Each Function",
-      "Two Full Size Photo Frames",
-      "Fast Delivery for all media",
-    ],
-    popular: false,
-    color: "bg-[#f9fafb] border border-[#0891b2]",
+    description: "A complete 4K cinematic experience.",
+    images: ["/Wedding Shoots/IMG-20250906-WA0022.jpg", "/Wedding Shoots/Picsart_25-09-09_15-19-02-184.jpg"],
+    features: ["Full 4K Video Coverage", "2 Photographers + 1 Videographer + 1 Drone", "Cinematic Wedding Film in 4K", "Wedding Teaser Video in 4K", "Two Full Size Photo Frames", "Fast Delivery for all media"],
   },
   {
     name: "Diamond Package",
     originalPrice: "₹1,49,999",
     offeredPrice: "₹1,39,999",
     icon: Sparkles,
-    description: "Ultimate 4K cinematic wedding experience",
-    features: [
-      "2 Photographer + 2 Videographer + 1 Drone Driver",
-      "Premium Album - 350 Photos | Non-Tearable Sheets",
-      "Full Length Wedding Videos",
-      "Edited High-Resolution Images",
-      "Drone Coverage for entire events",
-      "Wedding Teaser Video in 4K",
-      "Cinematic Wedding Film in 4K",
-      "Reels from Each Function",
-      "Extended Wedding Film (Documentary Style)",
-      "Three Full Size Photo Frames",
-      "Fast Delivery for all media",
-    ],
-    popular: true,
-    color: "bg-[#f9fafb] border border-[#0891b2]",
+    description: "The ultimate documentary-style coverage.",
+    images: ["/Wedding Shoots/IMG-20250906-WA0023.jpg"],
+    features: ["Extended Documentary Film", "2 Photographers + 2 Videographers + 1 Drone", "Drone Coverage for entire events", "Reels from Each Function", "Three Full Size Photo Frames", "Premium Album (350 Photos)"],
   },
 ]
 
-export default function WeddingFilmsPage() {
-  const getWhatsAppLink = (packageName: string, offeredPrice: string) => {
-    const text = encodeURIComponent(
-      `Hello, I would like to book the ${packageName} wedding package for ${offeredPrice}.`
-    )
-    return `https://wa.me/${whatsappNumber}?text=${text}`
-  }
+type WeddingPackage = typeof weddingPackages[0];
+
+const ParallaxSection: React.FC<{image: string; title: string; content: string;}> = ({ image, title, content }) => (
+  <Parallax 
+    bgImage={image} 
+    strength={200}
+    className="relative h-screen bg-black text-white flex items-center justify-center text-center"
+    bgImageStyle={{ backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}
+  >
+    <div className="bg-black/50 backdrop-blur-sm p-6 md:p-12 rounded-lg max-w-4xl mx-4 border border-white/20">
+      <Fade direction="up" triggerOnce>
+        <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-wider mb-4">{title}</h2>
+        <p className="text-md md:text-lg leading-relaxed">{content}</p>
+      </Fade>
+    </div>
+  </Parallax>
+);
+
+export default function WeddingFilmsClient() {
+  const [selectedPackage, setSelectedPackage] = useState<WeddingPackage | null>(null);
+  const currentPage = "Wedding Films Page"; // Define the name of the current page
+
+  const handleFormSuccess = () => {
+    setSelectedPackage(null); 
+  };
 
   return (
-    <section className="py-20 bg-[#f9fafb]">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#0891b2] mb-4">Wedding Films</h1>
-          <p className="text-lg text-[#374151] max-w-3xl mx-auto leading-relaxed">
-            Capture the magic of your wedding day with cinematic films, pre/post-wedding shoots, and tailored photography packages. Choose a package that suits your dream celebration.
-          </p>
-        </div>
+    <Dialog open={!!selectedPackage} onOpenChange={(isOpen) => !isOpen && setSelectedPackage(null)}>
+      <main className="bg-white">
+        <Parallax
+          bgImage="/Wedding Shoots/pexels-sampark-films-samparkfilms-com-1300296201-32081704.jpg"
+          strength={400}
+          className="h-screen text-white flex items-center justify-center text-center"
+          bgImageStyle={{ backgroundPosition: 'center' }}
+        >
+          <div className="bg-black/50 backdrop-blur-sm p-8 md:p-16 rounded-lg max-w-5xl mx-4 border border-white/20">
+            <Fade direction="down" triggerOnce>
+              <h1 className="text-5xl md:text-7xl font-bold mb-4">Your Forever Story, Told Cinematically</h1>
+              <p className="text-xl md:text-2xl font-light">Crafting Timeless Wedding Films in Varanasi and Beyond</p>
+            </Fade>
+          </div>
+        </Parallax>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {weddingPackages.map((pkg, index) => {
-            const Icon = pkg.icon
-            return (
-              <Card
-                key={index}
-                className={`relative ${pkg.color} hover:shadow-xl transition-all duration-300 hover:-translate-y-2`}
-              >
-                {pkg.popular && (
-                  <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#0891b2] text-[#f9fafb]">
-                    Most Popular
-                  </Badge>
-                )}
+        {parallaxData.map((section, index) => (
+          <ParallaxSection key={index} {...section} />
+        ))}
 
-                <CardHeader className="text-center pb-6">
-                  <div className="w-16 h-16 bg-[#0891b2]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-8 h-8 text-[#0891b2]" />
-                  </div>
-                  <CardTitle className="text-2xl font-bold text-[#0891b2]">{pkg.name}</CardTitle>
-                  <CardDescription className="text-[#374151]">{pkg.description}</CardDescription>
-                  <div className="mt-4">
-                    <span className="text-sm line-through text-[#374151] mr-2">{pkg.originalPrice}</span>
-                    <span className="text-3xl font-bold text-[#0891b2]">{pkg.offeredPrice}</span>
-                  </div>
-                </CardHeader>
+        <section id="wedding-packages" className="py-20 bg-slate-50">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center mb-16">
+              <Fade direction="down" triggerOnce>
+                <h2 className="text-base font-semibold text-cyan-600 tracking-wider uppercase">Our Wedding Packages</h2>
+                <p className="mt-2 text-4xl md:text-5xl font-bold text-gray-900 tracking-tight">
+                  Choose Your Perfect Story
+                </p>
+                <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+                  We've crafted four exclusive packages to perfectly capture your special day. Each one is designed with care, quality, and a touch of cinematic magic.
+                </p>
+              </Fade>
+            </div>
 
-                <CardContent className="space-y-4">
-                  <ul className="space-y-2">
-                    {pkg.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start space-x-2 text-[#374151]">
-                        <Check className="w-5 h-5 text-[#0891b2] mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              {weddingPackages.map((pkg) => (
+                <Fade direction="up" triggerOnce key={pkg.name}>
+                  <PackageCard pkg={pkg} onBookClick={() => setSelectedPackage(pkg)} />
+                </Fade>
+              ))}
+            </div>
+            
+            <div className="text-center mt-16">
+               <p className="text-gray-600 mb-4">
+                Need a custom package?
+              </p>
+              <Button asChild variant="outline" size="lg" className="border-cyan-600 text-cyan-600 hover:bg-cyan-600 hover:text-white bg-transparent transition-colors">
+                <a href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hello, I would like to request a custom wedding package.")}`} target="_blank" rel="noopener noreferrer">
+                  Contact Us on WhatsApp
+                </a>
+              </Button>
+            </div>
+          </div>
+        </section>
+        
+        <footer className="bg-gray-900 text-gray-300 text-center p-8">
+          <p>&copy; {new Date().getFullYear()} HIG Production House. All Rights Reserved.</p>
+          <p className="text-sm">Based in Varanasi, Uttar Pradesh</p>
+        </footer>
+      </main>
 
-                  <Button
-                    asChild
-                    className="w-full bg-[#0891b2] hover:bg-[#036d91] text-[#f9fafb]"
-                    size="lg"
-                  >
-                    <a
-                      href={getWhatsAppLink(pkg.name, pkg.offeredPrice)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Book This Package
-                    </a>
-                  </Button>
-                </CardContent>
-              </Card>
-            )
-          })}
-        </div>
-
-        <div className="text-center mt-12">
-          <p className="text-[#374151] mb-4">
-            Need a custom package? We can create a personalized solution for your wedding.
-          </p>
-          <Button
-            asChild
-            variant="outline"
-            size="lg"
-            className="border-[#0891b2] text-[#0891b2] hover:bg-[#0891b2] hover:text-[#f9fafb] bg-transparent"
-          >
-            <a
-              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-                "Hello, I would like to request a custom wedding package."
-              )}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Request Custom Quote
-            </a>
-          </Button>
-        </div>
-      </div>
-    </section>
+      <DialogContent className="sm:max-w-[425px]">
+        {selectedPackage && 
+            <BookingForm 
+                packageName={selectedPackage.name} 
+                sourcePage={currentPage} 
+                onSuccess={handleFormSuccess} 
+            />
+        }
+      </DialogContent>
+    </Dialog>
   )
 }
 
+const PackageCard = ({ pkg, onBookClick }: { pkg: WeddingPackage, onBookClick: () => void }) => {
+  const Icon = pkg.icon;
+  const popularStyles = "ring-2 ring-cyan-500 ring-offset-2 shadow-2xl shadow-cyan-500/20";
 
-
-
-
+  return (
+    <div className={`relative flex flex-col rounded-2xl bg-white transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${popularStyles}`}>
+        <div className="aspect-w-16 aspect-h-9">
+            <img 
+                src={pkg.images[0]} 
+                alt={pkg.name} 
+                className="w-full h-full object-cover rounded-t-2xl"
+            />
+        </div>
+        <div className="p-8 flex flex-col flex-grow">
+            <div className="flex items-center">
+                <div className="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center mr-4">
+                  <Icon className="w-7 h-7 text-cyan-600" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900">{pkg.name}</h3>
+                  <p className="text-sm text-gray-500">{pkg.description}</p>
+                </div>
+            </div>
+            <div className="my-8 flex items-baseline gap-x-2">
+                <span className="text-5xl font-bold tracking-tight text-gray-900">{pkg.offeredPrice}</span>
+                <span className="text-md font-medium text-gray-400 line-through">{pkg.originalPrice}</span>
+            </div>
+            <ul className="flex-grow space-y-3 text-sm leading-6 text-gray-600">
+                <Fade cascade damping={0.1} triggerOnce>
+                {pkg.features.map((feature: string) => (
+                    <li key={feature} className="flex gap-x-3">
+                    <Check className="h-6 w-5 flex-none text-cyan-500" aria-hidden="true" />
+                    {feature}
+                    </li>
+                ))}
+                </Fade>
+            </ul>
+            <Button onClick={onBookClick} className="mt-8 w-full bg-cyan-600 hover:bg-cyan-500">
+                Book This Package
+            </Button>
+        </div>
+    </div>
+  );
+};

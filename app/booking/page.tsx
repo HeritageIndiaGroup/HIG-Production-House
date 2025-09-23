@@ -1,4 +1,4 @@
-import { BookingForm } from "@/components/booking-form"
+import { BookingForm } from "@/components/BookingForm"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 

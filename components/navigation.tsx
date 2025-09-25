@@ -1630,7 +1630,7 @@ export function Navigation() {
     () => [
       { name: "Facebook", icon: Facebook, url: "https://www.facebook.com/higproduction" },
       { name: "LinkedIn", icon: Linkedin, url: "https://www.linkedin.com/company/higproduction" },
-      { name: "Instagram", icon: Instagram, url: "https://www.instagram.com/higproduction" },
+      { name: "Instagram", icon: Instagram, url: "https://www.instagram.com/hig.productionhouse/" },
       { name: "Pinterest", icon: PinterestIcon, url: "https://www.pinterest.com/higproduction" },
     ],
     [],

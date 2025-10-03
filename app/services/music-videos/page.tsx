@@ -107,77 +107,77 @@
 //   };
 
 //   return (
-//     <Dialog open={!!selectedPackage} onOpenChange={(isOpen) => !isOpen && setSelectedPackage(null)}>
-//       <main className="bg-white">
-//         <Parallax
-//           bgImage="/Music Shoots/pexels-jibarofoto-2091375.jpg"
-//           strength={400}
-//           className="h-screen text-white flex items-center justify-center text-center"
-//           bgImageStyle={{ backgroundPosition: 'center' }}
-//         >
-//           <div className="bg-black/50 backdrop-blur-sm p-8 md:p-16 rounded-lg max-w-5xl mx-4 border border-white/20">
+//     <main className="bg-white">
+//       <Parallax
+//         bgImage="/Music Shoots/pexels-jibarofoto-2091375.jpg"
+//         strength={400}
+//         className="h-screen text-white flex items-center justify-center text-center"
+//         bgImageStyle={{ backgroundPosition: 'center' }}
+//       >
+//         <div className="bg-black/50 backdrop-blur-sm p-8 md:p-16 rounded-lg max-w-5xl mx-4 border border-white/20">
+//           <Fade direction="down" triggerOnce>
+//             <h1 className="text-5xl md:text-7xl font-bold mb-4">Bring Your Music to Life</h1>
+//             <p className="text-xl md:text-2xl font-light">Professional Music Video Production</p>
+//           </Fade>
+//         </div>
+//       </Parallax>
+
+//       {parallaxData.map((section, index) => (
+//         <ParallaxSection key={index} {...section} />
+//       ))}
+
+//       <section id="music-packages" className="py-20 bg-slate-50">
+//         <div className="max-w-7xl mx-auto px-6">
+//           <div className="text-center mb-16">
 //             <Fade direction="down" triggerOnce>
-//               <h1 className="text-5xl md:text-7xl font-bold mb-4">Bring Your Music to Life</h1>
-//               <p className="text-xl md:text-2xl font-light">Professional Music Video Production</p>
+//               <h2 className="text-base font-semibold text-cyan-600 tracking-wider uppercase">Our Music Video Packages</h2>
+//               <p className="mt-2 text-4xl md:text-5xl font-bold text-gray-900 tracking-tight">
+//                 Find Your Sound's Visual Identity
+//               </p>
+//               <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+//                 From concept to final cut, we create visually stunning videos that complement your sound and elevate your brand as an artist.
+//               </p>
 //             </Fade>
 //           </div>
-//         </Parallax>
 
-//         {parallaxData.map((section, index) => (
-//           <ParallaxSection key={index} {...section} />
-//         ))}
-
-//         <section id="music-packages" className="py-20 bg-slate-50">
-//           <div className="max-w-7xl mx-auto px-6">
-//             <div className="text-center mb-16">
-//               <Fade direction="down" triggerOnce>
-//                 <h2 className="text-base font-semibold text-cyan-600 tracking-wider uppercase">Our Music Video Packages</h2>
-//                 <p className="mt-2 text-4xl md:text-5xl font-bold text-gray-900 tracking-tight">
-//                   Find Your Sound's Visual Identity
-//                 </p>
-//                 <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
-//                   From concept to final cut, we create visually stunning videos that complement your sound and elevate your brand as an artist.
-//                 </p>
+//           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+//             {musicVideoPackages.map((pkg) => (
+//               <Fade direction="up" triggerOnce key={pkg.name}>
+//                 <PackageCard pkg={pkg} onBookClick={() => setSelectedPackage(pkg)} />
 //               </Fade>
-//             </div>
-
-//             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-//               {musicVideoPackages.map((pkg) => (
-//                 <Fade direction="up" triggerOnce key={pkg.name}>
-//                   <PackageCard pkg={pkg} onBookClick={() => setSelectedPackage(pkg)} />
-//                 </Fade>
-//               ))}
-//             </div>
-            
-//             <div className="text-center mt-16">
-//                <p className="text-gray-600 mb-4">
-//                 Have a unique concept in mind? Let's discuss your creative vision.
-//               </p>
-//               <Button asChild variant="outline" size="lg" className="border-cyan-600 text-cyan-600 hover:bg-cyan-600 hover:text-white bg-transparent transition-colors">
-//                 <a href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hello, I would like to discuss a custom music video project.")}`} target="_blank" rel="noopener noreferrer">
-//                   Discuss Your Project
-//                 </a>
-//               </Button>
-//             </div>
+//             ))}
 //           </div>
-//         </section>
-        
-//         <footer className="bg-gray-900 text-gray-300 text-center p-8">
-//           <p>&copy; {new Date().getFullYear()} HIG Production House. All Rights Reserved.</p>
-//           <p className="text-sm">Based in Varanasi, Uttar Pradesh</p>
-//         </footer>
-//       </main>
+          
+//           <div className="text-center mt-16">
+//              <p className="text-gray-600 mb-4">
+//               Have a unique concept in mind? Let's discuss your creative vision.
+//             </p>
+//             <Button asChild variant="outline" size="lg" className="border-cyan-600 text-cyan-600 hover:bg-cyan-600 hover:text-white bg-transparent transition-colors">
+//               <a href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hello, I would like to discuss a custom music video project.")}`} target="_blank" rel="noopener noreferrer">
+//                 Discuss Your Project
+//               </a>
+//             </Button>
+//           </div>
+//         </div>
+//       </section>
+      
+//       <footer className="bg-gray-900 text-gray-300 text-center p-8">
+//         <p>&copy; {new Date().getFullYear()} HIG Production House. All Rights Reserved.</p>
+//         <p className="text-sm">Based in Varanasi, Uttar Pradesh</p>
+//       </footer>
 
-//       <DialogContent className="sm:max-w-[425px]">
-//         {selectedPackage && 
-//             <BookingForm 
-//                 packageName={selectedPackage.name} 
-//                 sourcePage={currentPage} 
-//                 onSuccess={handleFormSuccess} 
-//             />
-//         }
-//       </DialogContent>
-//     </Dialog>
+//       <Dialog open={!!selectedPackage} onOpenChange={(isOpen) => !isOpen && setSelectedPackage(null)}>
+//         <DialogContent className="sm:max-w-[425px]">
+//           {selectedPackage && 
+//               <BookingForm 
+//                   packageName={selectedPackage.name} 
+//                   sourcePage={currentPage} 
+//                   onSuccess={handleFormSuccess} 
+//               />
+//           }
+//         </DialogContent>
+//       </Dialog>
+//     </main>
 //   )
 // }
 
@@ -191,21 +191,21 @@
 //   return (
 //     <div className={`relative flex flex-col rounded-2xl bg-white transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${popularStyles}`}>
 //         {pkg.popular && (
-//             <p className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 rounded-full bg-cyan-500 px-4 py-1 text-sm font-semibold text-white">
-//             Most Popular
-//             </p>
+//           <p className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 rounded-full bg-cyan-500 px-4 py-1 text-sm font-semibold text-white shadow-lg">
+//           Most Popular
+//           </p>
 //         )}
-//         <div className="aspect-w-16 aspect-h-9">
+//         <div className="aspect-w-16 aspect-h-9 overflow-hidden">
 //             <img 
 //                 src={pkg.images[0]} 
 //                 alt={pkg.name} 
-//                 className="w-full h-full object-cover rounded-t-2xl"
+//                 className="w-full h-full object-cover rounded-t-2xl transition-transform duration-300 hover:scale-105"
 //             />
 //         </div>
 //         <div className="p-8 flex flex-col flex-grow">
-//             <div className="flex items-center">
-//                 <div className="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center mr-4">
-//                   <Icon className="w-7 h-7 text-cyan-600" />
+//             <div className="flex items-center mb-4">
+//                 <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center mr-4 shadow-md">
+//                   <Icon className="w-7 h-7 text-white" />
 //                 </div>
 //                 <div>
 //                   <h3 className="text-xl font-semibold text-gray-900">{pkg.name}</h3>
@@ -213,27 +213,27 @@
 //                 </div>
 //             </div>
 //             <div className="my-8 flex items-baseline gap-x-2">
-//                 <span className="text-5xl font-bold tracking-tight text-gray-900">{pkg.offeredPrice}</span>
+//                 <span className="text-5xl font-bold tracking-tight text-gray-900 blur-sm">{pkg.offeredPrice}</span>
 //                 <span className="text-md font-medium text-gray-400 line-through">{pkg.originalPrice}</span>
 //             </div>
-//             <ul className="flex-grow space-y-3 text-sm leading-6 text-gray-600">
+//             <ul className="flex-grow space-y-3 text-sm leading-6 text-gray-600 mb-6">
 //                 <Fade cascade damping={0.1} triggerOnce>
 //                 {pkg.features.map((feature: string) => (
 //                     <li key={feature} className="flex gap-x-3">
-//                     <Check className="h-6 w-5 flex-none text-cyan-500" aria-hidden="true" />
+//                     <Check className="h-6 w-5 flex-none text-cyan-500 mt-0.5" aria-hidden="true" />
 //                     {feature}
 //                     </li>
 //                 ))}
 //                 </Fade>
 //             </ul>
-//             <Button onClick={onBookClick} className="mt-8 w-full bg-cyan-600 hover:bg-cyan-500">
+//             <p className="text-sm text-gray-500 text-center mb-4 font-medium italic">For More Information, Click On Book Now And Fill The Form.</p>
+//             <Button onClick={onBookClick} className="mt-auto w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white font-semibold shadow-lg transform hover:scale-105 transition-all duration-200">
 //                 Book This Package
 //             </Button>
 //         </div>
 //     </div>
 //   );
 // };
-
 
 
 
@@ -258,6 +258,8 @@ import { Parallax } from 'react-parallax';
 import { Fade } from "react-awesome-reveal";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { BookingForm } from "@/components/BookingForm";
+import { Navigation } from "@/components/navigation"
+import { Footer } from "@/components/footer"
 
 // Music-video-focused parallax data
 const parallaxData = [
@@ -357,7 +359,10 @@ export default function MusicVideosClient() {
   };
 
   return (
-    <main className="bg-white">
+ <>
+    <Navigation />
+
+    <main className="bg-white pt-16">
       <Parallax
         bgImage="/Music Shoots/pexels-jibarofoto-2091375.jpg"
         strength={400}
@@ -411,10 +416,8 @@ export default function MusicVideosClient() {
         </div>
       </section>
       
-      <footer className="bg-gray-900 text-gray-300 text-center p-8">
-        <p>&copy; {new Date().getFullYear()} HIG Production House. All Rights Reserved.</p>
-        <p className="text-sm">Based in Varanasi, Uttar Pradesh</p>
-      </footer>
+   </main>
+   <Footer/>
 
       <Dialog open={!!selectedPackage} onOpenChange={(isOpen) => !isOpen && setSelectedPackage(null)}>
         <DialogContent className="sm:max-w-[425px]">
@@ -427,7 +430,7 @@ export default function MusicVideosClient() {
           }
         </DialogContent>
       </Dialog>
-    </main>
+    </>
   )
 }
 

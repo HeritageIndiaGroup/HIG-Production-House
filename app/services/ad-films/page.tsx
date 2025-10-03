@@ -68,7 +68,7 @@
 //     offeredPrice: "₹1,50,000+",
 //     icon: Gem,
 //     description: "Luxury production for high-impact brand campaigns.",
-//     images: ["/Ad Film Shoots/Peter England.mp4"], // Using video as image placeholder if needed, but typically image
+//     images: ["/Ad Film Shoots/pexels-jack-baghel-2199968-20408436.jpg"],
 //     features: [
 //       "3+ Day Shoot with Full Crew",
 //       "Creative Concept & Full Pre-Production",
@@ -111,7 +111,7 @@
 //   return (
 //     <main className="bg-white">
 //       <Parallax
-//         bgImage="/Ad Film Shoots/pexels-jack-baghel-2199968-20408436.jpg"
+//         bgImage="/Ad Film Shoots/pexels-skgphotography-23801251.jpg"
 //         strength={400}
 //         className="h-screen text-white flex items-center justify-center text-center"
 //         bgImageStyle={{ backgroundPosition: 'center' }}
@@ -256,6 +256,8 @@ import { Parallax } from 'react-parallax';
 import { Fade } from "react-awesome-reveal";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { BookingForm } from "@/components/BookingForm";
+import { Navigation } from "@/components/navigation"
+import { Footer } from "@/components/footer"
 
 // Ad Film-focused parallax data
 const parallaxData = [
@@ -358,7 +360,9 @@ export default function AdFilmShootsClient() {
   };
 
   return (
-    <main className="bg-white">
+    <>
+    <Navigation />
+    <main className="bg-white pt-16">
       <Parallax
         bgImage="/Ad Film Shoots/pexels-skgphotography-23801251.jpg"
         strength={400}
@@ -412,10 +416,8 @@ export default function AdFilmShootsClient() {
         </div>
       </section>
       
-      <footer className="bg-gray-900 text-gray-300 text-center p-8">
-        <p>&copy; {new Date().getFullYear()} HIG Production House. All Rights Reserved.</p>
-        <p className="text-sm">Based in Varanasi, Uttar Pradesh</p>
-      </footer>
+      </main>
+      <Footer />
 
       <Dialog open={!!selectedPackage} onOpenChange={(isOpen) => !isOpen && setSelectedPackage(null)}>
         <DialogContent className="sm:max-w-[425px]">
@@ -428,7 +430,7 @@ export default function AdFilmShootsClient() {
           }
         </DialogContent>
       </Dialog>
-    </main>
+    </>
   )
 }
 
@@ -485,3 +487,4 @@ const PackageCard = ({ pkg, onBookClick }: { pkg: AdFilmPackage, onBookClick: ()
     </div>
   );
 };
+

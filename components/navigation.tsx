@@ -1610,12 +1610,12 @@ export function Navigation() {
         icon: Film,
         dropdown: [
           { name: "Film Shooting", href: "/services/film-shooting", image: "/Film shooting.jpg", description: "Professional film shooting services" },
-          { name: "Short Films", href: "/services/short-films", image: "/short-films.jpg", description: "Creative short film production" },
+          { name: "Short Films", href: "/services/short-films", image: "/Short Films/pexels-theshortguyfilms-29187425 - Copy.jpg", description: "Creative short film production" },
           { name: "Wedding Films & Pre/Post Wedding Shoot", href: "/services/wedding-films", image: "/Weeding films Pre Post wedding Shoot.jpg", description: "Memorable wedding films" },
           { name: "Commercial Product Shoot", href: "/services/commercial-shoot", image: "/Commercial Product shoot.jpg", description: "High-quality product photography" },
           { name: "Music Videos", href: "/services/music-videos", image: "/music videos.jpg", description: "Dynamic music video production" },
           { name: "Photography and Event Coverage", href: "/services/photography", image: "/event coverage.jpg", description: "Comprehensive event photography" },
-          { name: "Ad Films", href: "/services/ad-films", image: "/ad-films.jpg", description: "Engaging advertisement films" },
+          { name: "Ad Films", href: "/services/ad-films", image: "/Ad Film Shoots/pexels-jose-martin-segura-benites-1422456152-27127418.jpg", description: "Engaging advertisement films" },
           { name: "Corporate Films and Documentaries", href: "/services/corporate-films", image: "/corporate film and documentaries.jpg", description: "Professional corporate films" },
         ],
       },
@@ -1628,7 +1628,7 @@ export function Navigation() {
   // Memoized social links
   const socialLinks: SocialLink[] = useMemo(
     () => [
-      { name: "Facebook", icon: Facebook, url: "https://www.facebook.com/higproduction" },
+      { name: "Facebook", icon: Facebook, url: "https://www.facebook.com/share/19vRveVoGv/" },
       { name: "LinkedIn", icon: Linkedin, url: "https://www.linkedin.com/company/higproduction" },
       { name: "Instagram", icon: Instagram, url: "https://www.instagram.com/hig.productionhouse/" },
       { name: "Pinterest", icon: PinterestIcon, url: "https://www.pinterest.com/higproduction" },
